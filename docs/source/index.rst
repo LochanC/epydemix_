@@ -1,6 +1,18 @@
 Welcome to Epydemix's Documentation!
 ====================================
 
+.. image:: https://img.shields.io/github/stars/ngozzi/epydemix?style=social
+   :target: https://github.com/ngozzi/epydemix
+   :alt: GitHub Repo
+
+.. image:: https://readthedocs.org/projects/epydemix/badge/?version=latest
+   :target: https://epydemix.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
+
+.. image:: https://img.shields.io/badge/License-MIT-yellow.svg
+   :target: https://opensource.org/licenses/MIT
+   :alt: License MIT
+
 **Epydemix** is a Python package for epidemic modeling. It provides tools to create, calibrate, and analyze epidemic models, allowing users to simulate the spread of infectious diseases using different compartmental models, contact layers, and calibration techniques. 
 
 Features:
@@ -10,6 +22,15 @@ Features:
 - Calibrate models using Approximate Bayesian Computation (ABC).
 - Visualize simulation results with built-in plotting tools.
 - Extensible framework for modeling interventions and policy scenarios.
+
+Installation
+------------
+
+To install Epydemix, use the following command:
+
+.. code-block:: bash
+
+   pip install epydemix
 
 Get started
 ----------
