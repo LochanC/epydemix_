@@ -5,6 +5,7 @@ import pandas as pd
 from typing import List, Optional, Union, Any, Tuple, Dict
 import matplotlib.dates as mdates
 
+
 def get_black_to_grey(n):
     """Generate `n` grayscale colors starting with pure black."""
     if n < 1:
@@ -12,6 +13,7 @@ def get_black_to_grey(n):
     greys = np.linspace(0, 255, n, dtype=int)  
     greys[0] = 0 
     return [(g, g, g) for g in greys]
+
 
 def get_timeseries_data(df_quantiles: pd.DataFrame, 
                         column: str, 
@@ -994,11 +996,14 @@ def plot_trajectories(stacked: Dict[str, np.ndarray],
                        linewidth=2, label=label, zorder=2)
         pleg.append(line)
 
+    handles_data = []
     if show_data and data is not None:
-        p_actual = ax.scatter(x, data["data"], s=10, color="k", 
-                            zorder=3, label="observed")
-        if show_legend:
-            pleg.append(p_actual)
+        data_colors = get_black_to_grey(len(columns))
+        for column, data_color, label in zip(columns, data_colors, labels):
+            p_actual = ax.scatter(x, data[column], s=10, color=data_color, zorder=3, label=f"observed ({label})")
+            if show_legend:
+                pleg.append(p_actual)
+                handles_data.append(f"observed ({label})")
 
     # Style improvements
     ax.spines["right"].set_visible(False)
@@ -1014,7 +1019,7 @@ def plot_trajectories(stacked: Dict[str, np.ndarray],
     ax.set_yscale(y_scale)
     
     if show_legend and pleg:
-        ax.legend(pleg, labels + (["observed"] if show_data and data is not None else []), 
+        ax.legend(pleg, labels + (handles_data if show_data and data is not None else []), 
                  loc=legend_loc, frameon=False)
     
     plt.tight_layout()
