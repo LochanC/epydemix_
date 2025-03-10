@@ -25,15 +25,17 @@ We provide a series of tutorials to help you get started with Epydemix:
 - `Tutorial 7: COVID-19 Case Study <https://github.com/ngozzi/epydemix/blob/main/tutorials/7_Covid-19_Example.ipynb>`_
 
 
-API Reference
-=============
-
 .. toctree::
-   :maxdepth: 1
-   :caption: API Reference
+   :maxdepth: 3
+   :caption: API Reference:
 
-   api_reference
-   
+   epydemix.calibration
+   epydemix.model
+   epydemix.population
+   epydemix.utils
+   epydemix.visualization
+
+
 
 Indices and tables
 ==================
