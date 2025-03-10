@@ -13,7 +13,7 @@ authors = [
 ]
 readme = "README.md" 
 license = { file = "LICENSE" } 
-requires-python = ">=3.6"  # Minimum Python version required
+requires-python = ">=3.8"  # Minimum Python version required
 
 # Dependencies your package needs
 dependencies = [
@@ -54,6 +54,7 @@ disable = [
 # Black configuration 
 line-length = 88
 target-version = ["py37"]
+
 
 [tool.isort]
 # isort configuration (for import sorting)
