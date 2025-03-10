@@ -27,7 +27,7 @@ We provide a series of tutorials to help you get started with Epydemix:
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: API Reference:
 
    epydemix
 
