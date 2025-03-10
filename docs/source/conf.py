@@ -2,13 +2,13 @@ import os
 import sys
 import sphinx_rtd_theme
 
-
 sys.path.insert(0, os.path.abspath('../..'))  
 
+
 project = 'epydemix'
-copyright = '2025, Nicolò Gozzi'
-author = 'Nicolò Gozzi'
-release = '1.0.0'
+copyright = '2025, The epydemix developers'
+author = 'The epydemix developers'
+release = '0.1.0'
 
 extensions = [
     "sphinx.ext.autodoc",      
