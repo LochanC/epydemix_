@@ -8,7 +8,7 @@ setup(
     name="epydemix",  
     version="0.1.0",  
     author="Nicolò Gozzi",  
-    author_email="nic.gozzi@gmail.com",  
+    author_email="epydemix@isi.it",  
     description="A Python package for epidemic modeling, simulation, and calibration",  
     long_description=long_description,  
     long_description_content_type="text/markdown",  
@@ -20,7 +20,7 @@ setup(
         "License :: OSI Approved :: MIT License",  
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',  # Specify the minimum Python version required
+    python_requires='>=3.8',  # Specify the minimum Python version required
     install_requires=[
         "evalidate>=2.0.3",
         "matplotlib>=3.7.3",
