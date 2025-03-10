@@ -13,6 +13,11 @@ Welcome to Epydemix's Documentation!
    :target: https://opensource.org/licenses/MIT
    :alt: License MIT
 
+.. image:: https://cdn.prod.website-files.com/67bde9057c9d78157874e100/67c1d1122127f0a9ce202197_epydemix-logo-p-500.png
+   :width: 500px
+   :align: center
+
+
 **Epydemix** is a Python package for epidemic modeling. It provides tools to create, calibrate, and analyze epidemic models, allowing users to simulate the spread of infectious diseases using different compartmental models, contact layers, and calibration techniques. 
 
 Features:
@@ -48,7 +53,7 @@ We provide a series of tutorials to help you get started with Epydemix:
 
 .. toctree::
    :maxdepth: 3
-   :caption: API Reference:
+   :caption: API Reference
 
    epydemix.calibration
    epydemix.model
