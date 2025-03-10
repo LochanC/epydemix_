@@ -29,7 +29,12 @@ We provide a series of tutorials to help you get started with Epydemix:
    :maxdepth: 3
    :caption: API Reference:
 
-   epydemix
+   epydemix.calibration
+   epydemix.model
+   epydemix.population
+   epydemix.utils
+   epydemix.visualization
+
 
 
 Indices and tables
