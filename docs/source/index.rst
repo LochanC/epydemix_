@@ -1,6 +1,8 @@
 Welcome to Epydemix's Documentation!
 ====================================
 
+The source code for Epydemix is available on GitHub: `Epydemix Repository <https://github.com/ngozzi/epydemix>`_.
+
 .. image:: https://img.shields.io/github/stars/ngozzi/epydemix?style=social
    :target: https://github.com/ngozzi/epydemix
    :alt: GitHub Repo
