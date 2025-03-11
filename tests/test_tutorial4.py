@@ -1,4 +1,6 @@
 import pytest
+import matplotlib
+matplotlib.use("Agg")  # Use non-GUI backend before importing pyplot
 from scipy import stats 
 import pandas as pd
 import numpy as np

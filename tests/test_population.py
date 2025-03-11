@@ -1,4 +1,6 @@
 import pytest
+import matplotlib
+matplotlib.use("Agg")  # Use non-GUI backend before importing pyplot
 import numpy as np
 import pandas as pd
 from epydemix.population import Population

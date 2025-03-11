@@ -1,4 +1,6 @@
 import pytest
+import matplotlib
+matplotlib.use("Agg")  # Use non-GUI backend before importing pyplot
 from epydemix import load_predefined_model
 from epydemix.visualization import plot_quantiles, plot_spectral_radius
 from epydemix.population import load_epydemix_population

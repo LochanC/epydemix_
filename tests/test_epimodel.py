@@ -1,4 +1,6 @@
 import pytest
+import matplotlib
+matplotlib.use("Agg")  # Use non-GUI backend before importing pyplot
 import numpy as np
 from datetime import datetime
 from pandas import Timestamp

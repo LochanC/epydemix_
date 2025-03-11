@@ -1,4 +1,6 @@
 import pytest
+import matplotlib
+matplotlib.use("Agg")  # Use non-GUI backend before importing pyplot
 import matplotlib.pyplot as plt
 from epydemix import EpiModel
 from epydemix.visualization import plot_quantiles, plot_trajectories
