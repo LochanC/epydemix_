@@ -3,9 +3,12 @@ from epydemix import load_predefined_model
 from epydemix.population import Population, load_epydemix_population
 from epydemix.visualization import plot_contact_matrix, plot_population, plot_quantiles
 import matplotlib.pyplot as plt
+import os 
+
 
 def test_model_with_population(): 
-    population = load_epydemix_population("Indonesia", path_to_data="./data/")
+    
+    population = load_epydemix_population("Indonesia")
     print(population)
 
     fig, axes = plt.subplots(nrows=2, ncols=2, dpi=300)

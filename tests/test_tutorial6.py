@@ -99,7 +99,7 @@ def test_varying_params():
     model.add_parameter(name="transmission_rate", value=time_varying_transmission_rate)
 
     # run simulations
-    results = model.run_simulations(start_date=start_date, end_date=end_date)
+    results = model.run_simulations(start_date=start_date, end_date=end_date, Nsim=5)
 
     # plot results
     df_quantiles = results.get_quantiles_compartments()
@@ -119,7 +119,7 @@ def test_varying_params():
     model.add_parameter(name="transmission_rate", value=age_varying_transmission_rate)
 
     # run simulations
-    results = model.run_simulations(start_date=start_date, end_date=end_date)
+    results = model.run_simulations(start_date=start_date, end_date=end_date, Nsim=5)
 
     # plot results
     df_quantiles = results.get_quantiles_compartments()
@@ -136,7 +136,7 @@ def test_varying_params():
     model.add_parameter(name="transmission_rate", value=varying_transmission_rate)
 
     # run simulations
-    results = model.run_simulations(start_date=start_date, end_date=end_date)
+    results = model.run_simulations(start_date=start_date, end_date=end_date, Nsim=5)
 
     # plot results
     df_quantiles = results.get_quantiles_compartments()
@@ -148,10 +148,10 @@ def test_shorter_dt():
     model = load_predefined_model("SIR")
 
     # run the models with 1/3 day time steps (by default, the data is resampled at daily frequency)
-    results_shorter_dt = model.run_simulations(start_date=start_date, end_date=end_date, dt=1/3)
+    results_shorter_dt = model.run_simulations(start_date=start_date, end_date=end_date, dt=1/3, Nsim=5)
 
     # run the models with 1 day time steps and 1 week resampling frequency
-    results_resampled = model.run_simulations(start_date=start_date, end_date=end_date, dt=1, resample_frequency="W")
+    results_resampled = model.run_simulations(start_date=start_date, end_date=end_date, dt=1, resample_frequency="W", Nsim=5)
 
     # plot results
     plot_quantiles(results_shorter_dt.get_quantiles_compartments(), columns=["Susceptible_total", "Infected_total", "Recovered_total"], legend_loc="upper right");
@@ -161,5 +161,5 @@ def test_shorter_dt():
     plot_quantiles(results_resampled.get_quantiles_transitions(), columns=["Susceptible_to_Infected_total"], legend_loc="upper right");
 
     # run the models with 1 day time steps but resample hourly
-    results_resampled = model.run_simulations(start_date=start_date, end_date=end_date, dt=1, resample_frequency="1h")
+    results_resampled = model.run_simulations(start_date=start_date, end_date=end_date, dt=1, resample_frequency="1h", Nsim=5)
     plot_quantiles(results_resampled.get_quantiles_compartments(), columns=["Susceptible_total", "Infected_total", "Recovered_total"], legend_loc="center right");

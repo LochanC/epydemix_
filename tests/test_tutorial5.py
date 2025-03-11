@@ -16,7 +16,7 @@ colors = sns.color_palette("Dark2")
 
 def test_calibration_advanced():
     # import data and divide data into calibration and projection periods
-    data = pd.read_csv('./data/incidence_data.csv')
+    data = pd.read_csv('https://raw.githubusercontent.com/ngozzi/epydemix/refs/heads/main/tutorials/data/incidence_data.csv')
     data["date"] = pd.to_datetime(data["date"])
     data_calibration = data.iloc[:-40]
     data_projection = data.iloc[-40:]
@@ -93,18 +93,12 @@ def test_calibration_advanced():
     ax = plot_posterior_distribution(results_abc_smc.get_posterior_distribution(), "transmission_rate", kind="kde", title="Transmission rate", color=colors[1], label="Default Perturbation", ax=ax)
     ax.legend()
 
-    fig, ax = plt.subplots(dpi=300)
-    for generation, color in zip(range(5), sns.color_palette("Greens", n_colors=6)): 
-        plot_posterior_distribution(results_uniform.get_posterior_distribution(generation=generation), 
-                                    parameter="transmission_rate", ax=ax, kind="kde", color=color, label="Generation %d" % (generation+1))
-    ax.legend() 
-
     # create projection parameters
     projection_parameters = parameters.copy()
     projection_parameters["end_date"] = data_projection.date.values[-1]
 
     # run projections
-    results_abc_smc = abc_sampler.run_projections(projection_parameters)
+    results_abc_smc = abc_sampler.run_projections(projection_parameters, iterations=5)
 
     # plot the projections
     df_quantiles_calibration = results_abc_smc.get_calibration_quantiles(simulation_dates_calibration)

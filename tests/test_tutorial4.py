@@ -12,7 +12,7 @@ import seaborn as sns
 colors = sns.color_palette("Dark2")
 
 def test_calibration(): 
-    data = pd.read_csv('./data/incidence_data.csv')
+    data = pd.read_csv("https://raw.githubusercontent.com/ngozzi/epydemix/refs/heads/main/tutorials/data/incidence_data.csv")
     data["date"] = pd.to_datetime(data["date"])
 
     fig, ax = plt.subplots(dpi=300, figsize=(10, 3))
