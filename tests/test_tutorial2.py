@@ -25,10 +25,12 @@ def test_model_with_population(mock_population):
     plot_contact_matrix(mock_population, "home", ax=axes[1,0], fontsize=7, show_values=True)
     plot_contact_matrix(mock_population, "community", ax=axes[1,1], fontsize=7, show_values=True)
     plt.tight_layout()
+    plt.close()
 
     fig, axes = plt.subplots(ncols=2, dpi=300, figsize=(10, 5))
     plot_population(mock_population, ax=axes[0], title="Population Distribution (absolute numbers)")
     plot_population(mock_population, ax=axes[1], title="Population Distribution (percentages)", show_perc=True)
+    plt.close() 
 
     my_population = Population(name="My Population")    
     my_population.add_population(Nk=[100, 100], Nk_names=["A", "B"])
@@ -54,3 +56,4 @@ def test_model_with_population(mock_population):
     df_quantiles_comps = results.get_quantiles_compartments()
     ax = plot_quantiles(df_quantiles_comps, columns=["Infected_total", "Susceptible_total", "Recovered_total"], legend_loc="center right")
     ax = plot_quantiles(df_quantiles_comps, columns=["Infected_0-9", "Infected_10-19", "Infected_20-29", "Infected_30-39", "Infected_40+"], legend_loc="center right")
+    plt.close()

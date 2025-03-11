@@ -76,7 +76,7 @@ def test_new_transitions():
     # plot
     df_quantiles = results.get_quantiles_compartments()
     plot_quantiles(df_quantiles, columns=["S_total", "SB_total", "I_total", "R_total"], legend_loc="upper right");
-
+    plt.close()
 
 def test_varying_params(mock_population):
     start_date, end_date = "2024-01-01", "2024-04-10"
@@ -104,7 +104,7 @@ def test_varying_params(mock_population):
 
     time_varying_transmission_rate = create_seasonal_parameter(len(simulation_dates), 0.15, 0.35, 14)
     plt.plot(time_varying_transmission_rate)
-
+    plt.close()
 
     # add time-varying transmission rate to the model
     model.add_parameter(name="transmission_rate", value=time_varying_transmission_rate)
@@ -115,7 +115,7 @@ def test_varying_params(mock_population):
     # plot results
     df_quantiles = results.get_quantiles_compartments()
     plot_quantiles(df_quantiles, columns=["Susceptible_total", "Infected_total", "Recovered_total"], legend_loc="upper right");
-
+    plt.close()
     # create model and add population
     model = load_predefined_model("SIR")
     model.set_population(mock_population)
@@ -134,6 +134,7 @@ def test_varying_params(mock_population):
     # plot results
     df_quantiles = results.get_quantiles_compartments()
     plot_quantiles(df_quantiles, columns=["Infected_0-9", "Infected_10-19", "Infected_20-29", "Infected_30-39", "Infected_40+"], legend_loc="upper right");
+    plt.close()
 
     varying_transmission_rate = np.zeros((len(simulation_dates), 5))
     for i in range(5):
@@ -151,7 +152,7 @@ def test_varying_params(mock_population):
     # plot results
     df_quantiles = results.get_quantiles_compartments()
     plot_quantiles(df_quantiles, columns=["Infected_0-9", "Infected_10-19", "Infected_20-29", "Infected_30-39", "Infected_40+"], legend_loc="upper right");
-
+    plt.close()
 
 def test_shorter_dt():
     start_date, end_date = "2024-01-01", "2024-04-10"
@@ -166,10 +167,11 @@ def test_shorter_dt():
     # plot results
     plot_quantiles(results_shorter_dt.get_quantiles_compartments(), columns=["Susceptible_total", "Infected_total", "Recovered_total"], legend_loc="upper right");
     plot_quantiles(results_resampled.get_quantiles_compartments(), columns=["Susceptible_total", "Infected_total", "Recovered_total"], legend_loc="upper right");
-
+    plt.close()
     # plot total weekly new infections
     plot_quantiles(results_resampled.get_quantiles_transitions(), columns=["Susceptible_to_Infected_total"], legend_loc="upper right");
-
+    plt.close()
     # run the models with 1 day time steps but resample hourly
     results_resampled = model.run_simulations(start_date=start_date, end_date=end_date, dt=1, resample_frequency="1h", Nsim=5)
-    plot_quantiles(results_resampled.get_quantiles_compartments(), columns=["Susceptible_total", "Infected_total", "Recovered_total"], legend_loc="center right");
+    plot_quantiles(results_resampled.get_quantiles_compartments(), columns=["Susceptible_total", "Infected_total", "Recovered_total"], legend_loc="center right");  
+    plt.close()

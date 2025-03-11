@@ -15,6 +15,11 @@ The source code for Epydemix is available on GitHub: `Epydemix Repository <https
    :target: https://opensource.org/licenses/MIT
    :alt: License MIT
 
+.. image:: https://codecov.io/gh/ngozzi/epydemix/branch/main/graph/badge.svg
+   :target: https://codecov.io/gh/ngozzi/epydemix
+   :alt: Code coverage status
+
+
 .. image:: https://cdn.prod.website-files.com/67bde9057c9d78157874e100/67c1d1122127f0a9ce202197_epydemix-logo-p-500.png
    :width: 500px
    :align: center

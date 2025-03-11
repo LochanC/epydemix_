@@ -41,6 +41,7 @@ def test_modeling_interventions(mock_population):
 
     # plot
     plot_spectral_radius(model_interventions, legend_loc="center right")
+    plt.close()
     
     model_interventions.override_parameter(start_date="2024-02-01", 
                                        end_date="2024-08-31",
@@ -62,5 +63,5 @@ def test_modeling_interventions(mock_population):
 
     df_no_interventions = results_nointerventions.get_quantiles_compartments()
     ax = plot_quantiles(df_no_interventions, columns=["Infected_total"], colors=colors[1], labels="I(t), No interventions", ax=ax) 
-
+    plt.close()
     
