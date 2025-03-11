@@ -4,22 +4,32 @@ from epydemix.visualization import plot_quantiles, plot_spectral_radius
 from epydemix.population import load_epydemix_population
 from epydemix.utils import compute_simulation_dates
 import matplotlib.pyplot as plt
-
+from epydemix.population import Population
+import numpy as np 
 import seaborn as sns   
 colors = sns.color_palette("Dark2")
 
-def test_modeling_interventions(): 
+@pytest.fixture
+def mock_population(): 
+    population = Population()
+    population.add_population(np.random.randint(0, 100000, size=5), 
+                              ["0-9", "10-19", "20-29", "30-39", "40+"])
+    population.add_contact_matrix(np.random.random(size=(5,5)), "school")
+    population.add_contact_matrix(np.random.random(size=(5,5)), "work")
+    population.add_contact_matrix(np.random.random(size=(5,5)), "home")
+    population.add_contact_matrix(np.random.random(size=(5,5)), "community")
+
+def test_modeling_interventions(mock_population): 
     # import population and set simulation dates
-    population = load_epydemix_population("Indonesia")
     simulation_dates = compute_simulation_dates("2024-01-01", "2024-08-31")
 
     # create model with interventions and set population 
     model_interventions = load_predefined_model("SIR", transmission_rate=0.035)
-    model_interventions.set_population(population)
+    model_interventions.set_population(mock_population)
 
     # create model without interventions and set population
     model_nointerventions = load_predefined_model("SIR", transmission_rate=0.035)
-    model_nointerventions.set_population(population)
+    model_nointerventions.set_population(mock_population)
 
     # Define the interventions by using a multplying factor
     model_interventions.add_intervention(layer_name="work", start_date="2024-01-15", end_date="2024-02-15", reduction_factor=0.3, name="workplace closure")

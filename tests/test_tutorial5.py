@@ -8,13 +8,23 @@ from epydemix.visualization import plot_posterior_distribution
 from epydemix.calibration import ABCSampler
 from epydemix.utils import compute_simulation_dates
 from epydemix.visualization import plot_quantiles, plot_posterior_distribution_2d
-
+from epydemix.population import Population
 from epydemix.utils import Perturbation
 import seaborn as sns   
 colors = sns.color_palette("Dark2")
 
+@pytest.fixture
+def mock_population(): 
+    population = Population()
+    population.add_population(np.random.randint(0, 100000, size=5), 
+                              ["0-9", "10-19", "20-29", "30-39", "40+"])
+    population.add_contact_matrix(np.random.random(size=(5,5)), "school")
+    population.add_contact_matrix(np.random.random(size=(5,5)), "work")
+    population.add_contact_matrix(np.random.random(size=(5,5)), "home")
+    population.add_contact_matrix(np.random.random(size=(5,5)), "community")
 
-def test_calibration_advanced():
+
+def test_calibration_advanced(mock_population):
     # import data and divide data into calibration and projection periods
     data = pd.read_csv('https://raw.githubusercontent.com/ngozzi/epydemix/refs/heads/main/tutorials/data/incidence_data.csv')
     data["date"] = pd.to_datetime(data["date"])
@@ -23,7 +33,7 @@ def test_calibration_advanced():
 
     # model 
     model = load_predefined_model("SIR")
-    model.import_epydemix_population(population_name="Indonesia")
+    model.set_population(mock_population)
 
     # initial conditions (we assume fully S population except for 0.05% infected individual across age groups)
     initial_conditions = {"Susceptible": model.population.Nk - (model.population.Nk * 0.05 / 100).astype(int), 
