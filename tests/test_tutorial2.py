@@ -15,6 +15,7 @@ def mock_population():
     population.add_contact_matrix(np.random.random(size=(5,5)), "work")
     population.add_contact_matrix(np.random.random(size=(5,5)), "home")
     population.add_contact_matrix(np.random.random(size=(5,5)), "community")
+    return population
 
 def test_model_with_population(mock_population): 
     
@@ -52,4 +53,4 @@ def test_model_with_population(mock_population):
     # plot results
     df_quantiles_comps = results.get_quantiles_compartments()
     ax = plot_quantiles(df_quantiles_comps, columns=["Infected_total", "Susceptible_total", "Recovered_total"], legend_loc="center right")
-    ax = plot_quantiles(df_quantiles_comps, columns=["Infected_0-4", "Infected_5-19", "Infected_20-49", "Infected_50-64", "Infected_65+"], legend_loc="center right")
+    ax = plot_quantiles(df_quantiles_comps, columns=["Infected_0-9", "Infected_10-19", "Infected_20-29", "Infected_30-39", "Infected_40+"], legend_loc="center right")

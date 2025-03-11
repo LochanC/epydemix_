@@ -18,6 +18,7 @@ def mock_population():
     population.add_contact_matrix(np.random.random(size=(5,5)), "work")
     population.add_contact_matrix(np.random.random(size=(5,5)), "home")
     population.add_contact_matrix(np.random.random(size=(5,5)), "community")
+    return population
 
 def test_modeling_interventions(mock_population): 
     # import population and set simulation dates

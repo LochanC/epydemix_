@@ -20,6 +20,7 @@ def mock_population():
     population.add_contact_matrix(np.random.random(size=(5,5)), "work")
     population.add_contact_matrix(np.random.random(size=(5,5)), "home")
     population.add_contact_matrix(np.random.random(size=(5,5)), "community")
+    return population
 
 def test_calibration(mock_population): 
     data = pd.read_csv("https://raw.githubusercontent.com/ngozzi/epydemix/refs/heads/main/tutorials/data/incidence_data.csv")
