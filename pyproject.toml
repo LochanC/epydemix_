@@ -34,7 +34,7 @@ documentation = "https://github.com/ngozzi/epydemix"
 
 [tool.setuptools]
 # Use the find_packages mechanism with proper configuration
-package-dir = { "" = "epydemix" }  
+package-dir = { "epydemix" = "epydemix" }
 packages = { find = { where = ["epydemix"] } }
 include-package-data = true
 
