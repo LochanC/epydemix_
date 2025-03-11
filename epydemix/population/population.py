@@ -53,7 +53,7 @@ class Population:
             (aggregated by age groups).
     
    Example 1: Online import (data will be fetched from GitHub)
-    population_online = load_population(
+    population_online = load_epydemix_population(
         population_name="United_States",
         # Specify the preferred contact data source (needed only if you want to override the default primary source)
         contacts_source="mistry_2021",  
@@ -62,7 +62,7 @@ class Population:
 
     Example 2: Offline import (data will be loaded from a local directory)
     # Ensure that the folder is downloaded locally before running this
-    population_offline = load_population(
+    population_offline = load_epydemix_population(
         population_name="United_States",
         path_to_data="path/to/local/epydemix_data/",  # Path to the local data folder
         # Specify the preferred contact data source (needed only if you want to override the default primary source)
