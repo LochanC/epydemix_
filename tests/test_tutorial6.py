@@ -4,8 +4,19 @@ import matplotlib.pyplot as plt
 from epydemix.visualization import plot_quantiles
 import numpy as np
 from epydemix.utils import convert_to_2Darray, compute_simulation_dates
-from epydemix.population import load_epydemix_population
+from epydemix.population import Population
 
+
+@pytest.fixture
+def mock_population(): 
+    population = Population()
+    population.add_population(np.random.randint(0, 100000, size=5), 
+                              ["0-9", "10-19", "20-29", "30-39", "40+"])
+    population.add_contact_matrix(np.random.random(size=(5,5)), "school")
+    population.add_contact_matrix(np.random.random(size=(5,5)), "work")
+    population.add_contact_matrix(np.random.random(size=(5,5)), "home")
+    population.add_contact_matrix(np.random.random(size=(5,5)), "community")
+    return population
 
 def test_new_transitions():
     def compute_behavioral_transition_probability(params, data): 
@@ -67,7 +78,7 @@ def test_new_transitions():
     plot_quantiles(df_quantiles, columns=["S_total", "SB_total", "I_total", "R_total"], legend_loc="upper right");
 
 
-def test_varying_params():
+def test_varying_params(mock_population):
     start_date, end_date = "2024-01-01", "2024-04-10"
 
 
@@ -107,8 +118,7 @@ def test_varying_params():
 
     # create model and add population
     model = load_predefined_model("SIR")
-    population = load_epydemix_population(population_name="Japan")
-    model.set_population(population)
+    model.set_population(mock_population)
 
     print(model)
 
@@ -123,7 +133,7 @@ def test_varying_params():
 
     # plot results
     df_quantiles = results.get_quantiles_compartments()
-    plot_quantiles(df_quantiles, columns=["Infected_0-4", "Infected_5-19", "Infected_20-49", "Infected_50-64", "Infected_65+"], legend_loc="upper right");
+    plot_quantiles(df_quantiles, columns=["Infected_0-9", "Infected_10-19", "Infected_20-29", "Infected_30-39", "Infected_40+"], legend_loc="upper right");
 
     varying_transmission_rate = np.zeros((len(simulation_dates), 5))
     for i in range(5):
@@ -140,7 +150,7 @@ def test_varying_params():
 
     # plot results
     df_quantiles = results.get_quantiles_compartments()
-    plot_quantiles(df_quantiles, columns=["Infected_0-4", "Infected_5-19", "Infected_20-49", "Infected_50-64", "Infected_65+"], legend_loc="upper right");
+    plot_quantiles(df_quantiles, columns=["Infected_0-9", "Infected_10-19", "Infected_20-29", "Infected_30-39", "Infected_40+"], legend_loc="upper right");
 
 
 def test_shorter_dt():
