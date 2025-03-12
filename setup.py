@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setup(
     name="epydemix",  
     version="0.1.1",  
-    author="Nicolò Gozzi",  
+    author="The Epydemix Developers",  
     author_email="epydemix@isi.it",  
     description="A Python package for epidemic modeling, simulation, and calibration",  
     long_description=long_description,  
@@ -17,7 +17,7 @@ setup(
     include_package_data=True,  
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",  
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)", 
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.8',  # Specify the minimum Python version required
