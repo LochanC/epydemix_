@@ -106,7 +106,7 @@ For more information about the available population and contact matrices and to 
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the GPL-3.0 License. See the [LICENSE](LICENSE) file for more details.
 
 ## Contact
 
