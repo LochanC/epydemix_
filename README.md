@@ -1,5 +1,5 @@
 # Epydemix, the ABC of Epidemics
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Read the Docs](https://readthedocs.org/projects/epydemix/badge/?version=latest)](https://epydemix.readthedocs.io/en/latest/?badge=latest)
 ![Codecov](https://codecov.io/gh/ngozzi/epydemix/branch/main/graph/badge.svg)
 
