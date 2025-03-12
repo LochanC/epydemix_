@@ -9,7 +9,11 @@ name = "epydemix"
 version = "0.1.1" 
 description = "A Python package for epidemic modeling, simulation, and calibration"
 authors = [
-    { name = "Nicolò Gozzi", email = "nic.gozzi@gmail.com" }
+    { name = "Nicolò Gozzi", email = "nic.gozzi@gmail.com" }, 
+    { name = "Corrado Gioannini", email = "corrado.gioannini@isi.it" },
+    { name = "Luca Rossi", email = "luca.rossi@isi.it" },
+    { name = "Nicola Perra", email = "nicolaperra@gmail.com" },
+    { name = "Alessandro Vespignani", email = "a.vespignani@northeastern.edu" }
 ]
 readme = "README.md" 
 license = { file = "LICENSE" } 
@@ -28,9 +32,9 @@ dependencies = [
 
 [project.urls]
 # Optional links related to your project
-homepage = "https://github.com/ngozzi/epydemix"  
+homepage = "https://epydemix.webflow.io/"  
 repository = "https://github.com/ngozzi/epydemix"
-documentation = "https://github.com/ngozzi/epydemix"
+documentation = "https://epydemix.readthedocs.io/en/latest/"
 
 [tool.setuptools]
 # Use the find_packages mechanism with proper configuration
